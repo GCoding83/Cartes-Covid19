@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generateur de Jeux de Cartes</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.container{
+			background-color: grey;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="text-align: center; color: #6b5b95; font-variant: small-caps; font-weight: bold; border: 10px solid #6b5b95; padding: 10px;">Générateur de Jeux de Cartes</h1><br>
+	<main id="main" style="margin-left: 20px;" role="main" class="container-fluid">
+		<div class="content-section">
+
+			<style>
+				input.larger{
+					width:20px;
+					height:20px;
+				}
+				label.larger{
+					font-size: 1.3rem;
+					margin-left: 5px;
+				}
+			</style>
+
+			<h3>Cochez tous les joueurs qui seront présents</h3>
+			
+			<div class="form-check">
+				<input value="Andre" type="checkbox" class="form-check-input larger" />
+				<label class="form-check-label nomJoueur larger">Andre</label>
+			</div>
+			<div class="form-check">
+				<input value="Conrad" type="checkbox" class="form-check-input larger"/>
+				<label class="form-check-label nomJoueur larger">Conrad</label>
+			</div>
+		
+			<div class="form-check">
+				<input value="Jacques" type="checkbox" class="form-check-input larger" />
+				<label class="form-check-label nomJoueur larger">Jacques</label>
+			</div>
+			<div class="form-check">
+				<input value="JeanPaul" type="checkbox" class="form-check-input larger" />
+				<label class="form-check-label nomJoueur larger">Jean-Paul</label>
+			</div>
+			<div class="form-check">
+				<input value="Jessy" type="checkbox" class="form-check-input larger" />
+				<label class="form-check-label nomJoueur larger">Jessy</label>
+			</div>
+			<div class="form-check">
+				<input value="PierreA" type="checkbox" class="form-check-input larger" />
+				<label class="form-check-label nomJoueur larger">Pierre-A</label>
+			</div>
+		<br><br>
+		</div>
+
+		<div class="content-section">
+
+			<h3>Choisissez le type de partie et le nombre de jeux par partie</h3>
+
+				<div id="partie1" class="parties">
+					<br>
+					<h3><strong>Partie 1</strong></h3>
+					<div class="form-row align-items-center">
+						<div class="col-auto my-1">
+					      <label class="mr-sm-2" for="inlineFormCustomSelect">Type de Partie</label>
+					      <select id="typePartie" class="custom-select mr-sm-2">
+					        <option value="aucun" selected>--Choisir--</option>
+					        <option value="Barouette">Barouette</option>
+					        <option value="HautBas">Haut et Bas</option>
+					        <option value="QuatrePique">Quatre de Pique</option>
+					        <option value="Wizzard">Wizzard</option>
+					      </select>
+					    </div>
+					    <div class="col-auto my-1">
+					    	<div class="custom-control mr-sm-2">
+					    	  <label class="mr-sm-2" for="inlineFormCustomSelect">Nombre de Jeux</label>
+								<select id="nombreJeux" class="custom-select my-1 mr-sm-2">
+									<option value="aucun" selected>--Choisir--</option>
+								    <option value="1">1</option>
+								    <option value="2">2</option>
+								    <option value="3">3</option>
+								    <option value="4">4</option>
+								    <option value="5">5</option>
+								    <option value="6">6</option>
+								    <option value="7">7</option>
+								    <option value="8">8</option>
+								    <option value="9">9</option>
+								    <option value="10">10</option>
+								    <option value="11">11</option>
+								    <option value="12">12</option>
+								    <option value="13">13</option>
+								    <option value="14">14</option>
+								    <option value="15">15</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+
+<br><br>
+<button id="creerMains" type="submit" class="btn btn-success btn-lg">Créer les Mains des Joueurs</button>&nbsp
+
+</main>
+
+
+
+
+
+<!--Ci-bas, la partie qui n'apparait (display:block) seulement quand les jeu ont ete generes-->
+
+
+
+
+
+<section id="sectionResume" style="display: none;">
+	<div class="container-fluid">
+		<div class="content-section">
+	<br><br>
+	<button style="display: none;" id="btnAfficherAndre" type="submit" class="btn btn-info btn-lg">Afficher les mains pour André</button>
+	<br><br>
+	<button style="display: none;" id="btnAfficherConrad" type="submit" class="btn btn-info btn-lg">Afficher les mains pour Conrad</button>
+	<br><br>
+	<button style="display: none;" id="btnAfficherJacques" type="submit" class="btn btn-info btn-lg">Afficher les mains pour Jacques</button>
+	<br><br>
+	<button style="display: none;" id="btnAfficherJeanPaul" type="submit" class="btn btn-info btn-lg">Afficher les mains pour Jean-Paul</button>
+	<br><br>
+	<button style="display: none;" id="btnAfficherJessy" type="submit" class="btn btn-info btn-lg">Afficher les mains pour Jessy</button>
+	<br><br>
+	<button style="display: none;" id="btnAfficherPierreA" type="submit" class="btn btn-info btn-lg">Afficher les mains pour Pierre-A</button>
+
+	<br><br><br>
+	<button id="revenirMain" type="submit" class="btn btn-primary btn-lg">Recommencer</button>
+</div>
+</div>
+
+</section>
+
+
+<section id="sectionAndre" style="display: none;">
+	<h1 style="text-align: center;">LES MAINS D'ANDRÉ</h1> <br><br>
+	<div class="container-fluid" id="texteAndre"  style="display: none; font-size: 1.3rem; margin-left: 25px;">
+
+
+
+	</div>
+
+
+	<br><br><br>
+	<button id="revenirResumeAndre" style="margin-left: 30px; display:inline-block;" type="submit" class="btn btn-primary btn-lg revenirResume">Retour</button>
+	
+	
+</section>
+<br><br><br>
+
+
+<section id="sectionConrad" style="display: none;">
+	<h1 style="text-align: center;">LES MAINS DE CONRAD</h1> <br><br>
+	<div class="container-fluid" id="texteConrad"  style="display: none; font-size: 1.3rem; margin-left: 10px;">
+
+
+	</div>
+
+	<button id="revenirResumeConrad" style="margin-left: 30px;" type="submit" class="btn btn-primary btn-lg revenirResume">Retour</button><br>
+	
+</section>
+
+<section id="sectionJacques" style="display: none;">
+	<h1 style="text-align: center;">LES MAINS DE JACQUES</h1> <br><br>
+	<div class="container-fluid" id="texteJacques"  style="display: none; font-size: 1.3rem; margin-left: 10px;">
+
+	</div>
+<br><br><br>
+	<button id="revenirResumeJacques" style="margin-left: 30px;" type="submit" class="btn btn-primary btn-lg revenirResume">Retour</button><br>
+	
+</section>
+
+<section id="sectionPierreA" style="display: none;">
+	<h1 style="text-align: center;">LES MAINS DE PIERRE-A</h1> <br><br>
+	<div class="container-fluid" id="textePierreA"  style="display: none; font-size: 1.3rem; margin-left: 10px;">
+
+
+	</div>
+<br><br><br>
+	<button id="revenirResumePierreA" style="margin-left: 30px;" type="submit" class="btn btn-primary btn-lg revenirResume">Retour</button><br>
+	
+</section>
+
+<section id="sectionJeanPaul" style="display: none;">
+	<h1 style="text-align: center;">LES MAINS DE JEAN-PAUL</h1> <br><br>
+	<div class="container-fluid" id="texteJeanPaul"  style="display: none; font-size: 1.3rem; margin-left: 10px;">
+	</div>
+<br><br><br>
+	<button id="revenirResumeJeanPaul" type="submit" style="margin-left: 30px;" class="btn btn-primary btn-lg revenirResume">Retour</button><br>
+	
+</section>
+
+<section id="sectionJessy" style="display: none;">
+	<h1 style="text-align: center;">LES MAINS DE JESSY</h1> <br><br>
+	<div class="container-fluid" id="texteJessy"  style="display: none; font-size: 1.3rem; margin-left: 10px;">
+
+
+	</div>
+<br><br><br>
+	<button id="revenirResumeJessy" type="submit" style="margin-left: 30px;" class="btn btn-primary btn-lg revenirResume">Retour</button><br>
+	
+</section>
+
+
+</body>
+
+<script type="text/javascript" src="Models/Paquet.js"></script>
+<script type="text/javascript" src="Models/TypePartie.js"></script>
+<script type="text/javascript" src="Models/Joueur.js"></script>
+<script type="text/javascript" src="Models/Partie.js"></script>
+<script type="text/javascript" src="Models/Jeu.js"></script>
+<script type="text/javascript" src="Models/Main.js"></script>
+<script type="text/javascript" src="Services.js"></script>
+<script type="text/javascript" src="Controller.js"></script>
+
+
+</html>
